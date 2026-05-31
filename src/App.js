@@ -149,7 +149,7 @@ function App() {
 
       const response =
         await axios.get(
-          'http://127.0.0.1:8000/api/data/'
+          'https://esg-backend-17af.onrender.com/api/data/'
         );
 
       setData(response.data);
@@ -175,7 +175,7 @@ function App() {
 
       await axios.post(
 
-        `http://127.0.0.1:8000/api/approve/${id}/`,
+        `https://esg-backend-17af.onrender.com/api/data/${id}/`,
 
         {
           status: status
@@ -220,7 +220,7 @@ function App() {
       const response =
         await axios.post(
 
-          'http://127.0.0.1:8000/api/upload/',
+          'https://esg-backend-17af.onrender.com/api/data/',
 
           formData
         );
