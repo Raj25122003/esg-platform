@@ -12,7 +12,7 @@ import {
   Tooltip,
   CartesianGrid,
   PieChart,
- Pie,
+  Pie,
   Cell
 } from 'recharts';
 
@@ -175,7 +175,7 @@ function App() {
 
       await axios.post(
 
-        `https://esg-backend-17af.onrender.com/api/data/${id}/`,
+        `https://esg-backend-17af.onrender.com/api/approve/${id}/`,
 
         {
           status: status
@@ -195,9 +195,7 @@ function App() {
 
     if (!file) {
 
-      alert(
-        "Please select a file"
-      );
+      alert("Please select a file");
 
       return;
     }
@@ -220,9 +218,17 @@ function App() {
       const response =
         await axios.post(
 
-          'https://esg-backend-17af.onrender.com/api/data/',
+          'https://esg-backend-17af.onrender.com/api/upload/',
 
-          formData
+          formData,
+
+          {
+            headers: {
+              'Content-Type':
+                'multipart/form-data'
+            }
+          }
+
         );
 
       alert(
@@ -233,9 +239,9 @@ function App() {
 
     } catch (error) {
 
-      alert("Upload failed");
-
       console.log(error);
+
+      alert("Upload failed");
     }
   };
 
